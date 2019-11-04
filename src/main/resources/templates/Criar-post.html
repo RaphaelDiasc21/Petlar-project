@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header th:insert="partials/header.html :: header"></header>
+    <h1>Olá <span th:text="${username}"></h1>
+    
+    <form action="#" th:action="@{/registrar-post}" th:object="${Post}" method="POST">
+        Nome: <input type="text" th:field="*{nome}" />
+        Email:<input type="text" th:field="*{email}" />
+        Senha: <input type="text" th:field="*{senha}" />
+
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header th:insert="partials/header.html :: header"></header>
+    <h1>Registar usuário</h1>
+
+    <form action="#" th:action="@{/entrar-usuario}" th:object="${User}" method="POST">
+        Nome: <input type="text" name="email" />
+        Email:<input type="text" name="senha" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>
