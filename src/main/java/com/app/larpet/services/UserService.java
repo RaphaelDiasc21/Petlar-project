@@ -19,7 +19,7 @@ public class UserService{
 
     public void registerUser(User user){
         Optional<User> u = ur.findById(1);
-        
+
         if(!u.isEmpty()){
             System.out.println(u.get().getSenha());
         }

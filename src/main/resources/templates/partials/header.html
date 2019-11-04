@@ -7,14 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-        <nav th:fragment="header">
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li><a href="/adocoes">ADOÇÕES</a></li>
-                <li><a href="/perdidos">PERDIDOS</a></li>
-                <li><a href="/encontrados">ENCONTRADOS</a></li>
-                <li><a href="/registrar">REGISTRAR USUÁRIO</a></li>
-            </ul>
-        </nav>
+    <nav th:fragment="header">
+        <ul>
+            <li><a th:href="@{/}">HOME</a></li>
+            <li><a th:href="@{/adocoes}">ADOÇÕES</a></li>
+            <li><a th:href="@{/perdidos}">PERDIDOS</a></li>
+            <li><a th:href="@{/encontrados}">ENCONTRADOS</a></li>
+            <li><a th:href="@{/registrar}">REGISTRAR USUÁRIO</a></li>
+            <li><a th:href="@{/entrar}">ENTRAR</a></li>
+        </ul>
+    </nav>
 </body>
 </html>

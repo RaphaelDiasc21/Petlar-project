@@ -8,14 +8,14 @@
 </head>
 <body>
     <header th:insert="partials/header.html :: header"></header>
-    <h1>Registar usuário</h1>
+    <h1>Entrar</h1>
 
     <form action="#" th:action="@{/entrar-usuario}" th:object="${User}" method="POST">
         Nome: <input type="text" name="email" />
         Email:<input type="text" name="senha" />
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-        <button type="submit">Registrar</button>
+        <button type="submit">Entrar</button>
     </form>
 </body>
 </html>

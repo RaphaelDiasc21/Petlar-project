@@ -1,6 +1,7 @@
 package com.app.larpet.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,13 +15,25 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    
+
+
+    @Qualifier("userAuthService")
     @Autowired
     UserDetailsService us;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(us).passwordEncoder(passwordEncoder());
+
+        // Mock Authentication
+        auth.inMemoryAuthentication()
+                .withUser("duzin")
+                .password( passwordEncoder().encode("123"))
+                .roles("USER")
+            .and()
+                .withUser("raph")
+                .password( passwordEncoder().encode("123"))
+                .roles("USER");
     }
 
     @Override
