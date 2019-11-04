@@ -11,12 +11,32 @@
 	<groupId>com.app</groupId>
 	<artifactId>larpet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>larpet</name>
+	<description>Larpet Project</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
+
+	<developers>
+		<developer>
+			<name>Raphael Dias</name>
+			<email>...</email>
+			<url>...</url>
+			<roles>
+				<role>creator</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Eduardo Lima</name>
+			<email>dualmeidalima@gmail.com</email>
+			<url>https://github.com/Xenosgrilda/</url>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
@@ -70,6 +90,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
