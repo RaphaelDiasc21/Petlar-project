@@ -22,7 +22,7 @@ public class Post{
     private String animal;
 
     @Column
-    private String cidade_animal = "Campinas";
+    private String cidade_animal;
 
     @Column
     private String tipo_post;

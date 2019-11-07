@@ -22,6 +22,9 @@ public class UserDetail implements UserDetails {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    public int getId(){
+        return user.getId();
+    }
     @Override
     public String getPassword() {
         return user.getSenha();

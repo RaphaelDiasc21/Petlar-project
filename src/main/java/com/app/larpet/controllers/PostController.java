@@ -1,10 +1,14 @@
 package com.app.larpet.controllers;
 
+import java.util.List;
+
 import com.app.larpet.entities.Post;
 import com.app.larpet.services.PostService;
+import com.app.larpet.util.UserDetail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +23,12 @@ public class PostController{
 
     @GetMapping("/adocoes")
     public String adocoes(){
+        List<Post> posts = ps.getAdocoes().getContent();
+
+        for(Post p : posts){
+            System.out.println(p.getTitulo());
+            System.out.println(p.getTipo_post());
+        }
         return "Adocoes";
     }
 
@@ -34,9 +44,11 @@ public class PostController{
 
     @GetMapping("/post-inserir")
     public String index(Model m){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetail user = (UserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         m.addAttribute("post", new Post());
-        m.addAttribute("username", principal.getClass().getName());
+        m.addAttribute("username_id", user.getId());
+        m.addAttribute("username", user.getUsername());
+       
         return "Post-inserir";
     }
 

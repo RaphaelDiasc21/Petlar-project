@@ -10,5 +10,21 @@
     <header th:insert="partials/header.html :: header"></header>
 
     <h1>Olá <span th:text="${username}"></h1>
+        <span th:text="${username_id}"></span>
+    <form action="#" th:action="@{/post-inserir}" th:object="${post}" method="POST">
+        Titulo:<input type="text" th:field="*{titulo}" /><br>
+        Cidade: <input type="text" th:field="*{cidade_animal}" /><br>
+        Informações: <input type="text" th:field="*{info}" /><br>
+        <br><br>
+        Animal: Gato <input type="radio" th:field="*{animal}" value="Gato" />
+                Cachorro <input type="radio" th:field="*{animal}" value="Cachorro" />
+                <br><br>
+        Tipo do post: Adoção: <input type="radio" th:field="*{tipo_post}" value="Adocao" />
+                      Perdidos:<input type="radio" th:field="*{tipo_post}" value="Perdidos" />
+                      Encontrados:<input type="radio" th:field="*{tipo_post}" value="Encontrados" />
+
+                      <input type="hidden" th:field="*{id_user}" value="username_id" />
+        <button type="submit">OK</button>
+    </form>
 </body>
 </html>

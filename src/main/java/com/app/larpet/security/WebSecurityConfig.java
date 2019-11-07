@@ -38,14 +38,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
         .antMatchers("/post-inserir").hasRole("USER")
+        .antMatchers("/h2-console/**").permitAll()
         .antMatchers("/**").permitAll()
         .anyRequest().authenticated()
         .and().formLogin()
         .loginPage("/entrar").usernameParameter("email")
         .passwordParameter("senha").loginProcessingUrl("/entrar-usuario")
         .permitAll();
+
+        http.headers().frameOptions().disable();
     }
 
     @Bean
